@@ -16,5 +16,10 @@
   },
   "devDependencies": {
     "nodemon": "^1.18.0"
+  },
+  "scripts": {
+    "build": "webpack --watch",
+    "start:dev": "nodemon app.js",
+    "start:debug": "DEBUG=* node app.js"
   }
 }
