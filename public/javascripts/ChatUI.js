@@ -52,8 +52,16 @@ class ChatUI {
   // process user input
   processInput() {
     let msg = this.getInput();
-    this.sendMsg(this.room.textContent);
-    this.addMsg(msg);
+    let response;
+    if (msg[0] === '/') {
+      response = this.chat.processCommand(msg);
+      if (response) {
+        this.addMsg(response);
+      }
+    } else {
+      this.sendMsg(this.room.textContent);
+      this.addMsg(msg);
+    }
   }
 }
 
