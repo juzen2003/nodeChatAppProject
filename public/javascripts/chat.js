@@ -7,6 +7,10 @@ class Chat {
     this.socket.emit('message', {text: msg, room});
   }
 
+  changeRoom(room) {
+    this.socket.emit('join', {newRoom: room});
+  }
+
   processCommand(command) {
     const words = command.split(' ');
     const parsedCmd = words[0].substring(1, words[0].length).toLowerCase();
